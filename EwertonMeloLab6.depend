@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1574017934 source:c:\users\ewert\documents\sonny\computação20192\ewertonmelolab6\matriz.c
+	<stdio.h>
+	<stdlib.h>
+
+1574015456 source:c:\users\ewert\documents\sonny\computação20192\ewertonmelolab6\main.c
+	<stdio.h>
+	<stdlib.h>
+	"matriz.h"
+
+1573999257 c:\users\ewert\documents\sonny\computação20192\ewertonmelolab6\matriz.h
+
