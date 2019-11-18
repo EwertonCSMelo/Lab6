@@ -104,7 +104,7 @@ int main()
                         matriz1=criarMatriz(linha,coluna);
                         printf("Digite os dados das linhas e colunas da Matriz 1: \n");
                         lerMatriz(matriz1,linha,coluna);
-                        printf("%d\n\n",determinante(matriz1,linha,coluna));
+                        printf("O determinante e: %d\n\n",determinante(matriz1,linha,coluna));
                         system("pause");
                         break;
                         default: printf("Opcao Invalida.\n");

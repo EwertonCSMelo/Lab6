@@ -36,6 +36,7 @@
 		</Unit>
 		<Unit filename="matriz.c">
 			<Option compilerVar="CC" />
+			<Option weight="0" />
 		</Unit>
 		<Unit filename="matriz.h" />
 		<Extensions>

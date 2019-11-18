@@ -133,62 +133,67 @@ int matrizOposta(int **m,int lin,int col)
 }
 int determinante(int **m,int lin,int col)
 {
-  int i,j,k,jini,s1,s2,prod,**maux;
+  int i,j,k,jini,s1,s2,prod,det,**maux;
 
-  maux=criarMatriz(lin,col+col-1);
+  if(lin==2&&col==2)
+  {
+      det=m[1][1]*m[2][2]-m[1][2]*m[2][1];
+      return det;
+  }
+  else
+  {
+      maux=criarMatriz(lin,col+col-1);
 
-  for (i=0;i<lin;i++) // Inicializando matriz auxiliar com matriz m
-      {
-       for(j=0;j<col;j++)
-         {
-           maux[i][j]=m[i][j];
-         }
-      }
-
-  for (i=0;i<lin;i++)  // Inicializando demais colunas
-      {
-       for(j=col;j<2*col-1;j++)
-       {   k=j-col;
-           maux[i][j]=m[i][k];
-       }
-      }
-      imprimir(maux,lin,2*col-1);
-
-
-      jini=0;
-      j=jini;
-      s1=0;
-      s2=0;
-      while(j<col)
-      {
-          prod=maux[0][j];
-          for(i=0;i<lin;i++)
+      for (i=0;i<lin;i++) // Inicializando matriz auxiliar com matriz m
           {
-              if(i<=j)
-              {
-                  printf("%d %d %d %d\n",i,j,prod,maux[i][j]);
-                  prod=prod*maux[i][j++];
-              }
+           for(j=0;j<col;j++)
+             {
+               maux[i][j]=m[i][j];
+             }
           }
-          s1=s1+prod;
-          prod=1;
-          jini=jini+1;
-          j=jini;
-      }
 
-      while(j<=2*col-1)
-      {
-          prod=maux[0][j];
-          for(i=0;i<lin;i++)
+      for (i=0;i<lin;i++)  // Inicializando demais colunas
           {
-              if(i<=j)
-              {
-                  prod=prod*maux[i][j++];
-              }
+           for(j=col;j<2*col-1;j++)
+           {   k=j-col;
+               maux[i][j]=m[i][k];
+           }
           }
-          s2=s2+prod;
-          jini=jini+1;
+          jini=0;
           j=jini;
-      }
+          s1=0;
+          s2=0;
+          while(j<col)
+          {
+              prod=1;
+              for(i=0;i<lin;i++)
+              {
+                  if(i<=j)
+                  {
+                      prod=prod*maux[i][j++];
+                  }
+
+              }
+              s1=s1+prod;
+              prod=1;
+              jini=jini+1;
+              j=jini;
+          }
+
+          jini=(2*col)-2;
+          j=jini;
+          while(j>=col-1)
+          {
+              prod=1;
+
+              for(i=0;i<lin;i++)
+              {
+                  prod=prod*maux[i][j--];
+              }
+              s2=s2+prod;
+              jini=jini-1;
+              j=jini;
+          }
+  }
       return s1-s2;
 }
